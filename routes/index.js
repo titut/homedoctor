@@ -8,6 +8,10 @@ router.get('/test', function(req,res,next){
   res.render('test')
 })
 
+router.get('/image', function(req, res, next) {
+  res.render('image');
+});
+
 router.get('/about', function(req,res,next){
   res.render('about');
 })
