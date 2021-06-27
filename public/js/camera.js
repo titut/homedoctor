@@ -4,77 +4,84 @@ let pose;
 let skeleton
 let defaultNosePosition = []
 let movement = 0
+let movementTime= 60
 let prevNose
-function setup() {
-    //before starting, please be in good posture
 
-    canvas = createCanvas(width, height);
-    $('#defaultCanvas0').css('display', 'flex')
+let classifier;
+let imageModelURL = 'js/fatigue/';
+let flippedVideo;
+let canvas
+let webcam_output
 
-    $('#defaultCanvas0').css('margin', 'auto')
-    $('#defaultCanvas0').css('border', '10px solid #F44A87')
+let tiredCount = 0
+Notiflix.Notify.Init({});
+Notiflix.Report.Init({});
 
-    webcam_output = createCapture(VIDEO);
-    webcam_output.size(width, height);
-    poseNet = ml5.poseNet(webcam_output, modelReady);
+function preload() {
+    classifier = ml5.imageClassifier(imageModelURL + 'model.json');
+}
+$("#start-monitor").click(function () {
+    $("#start-monitor").remove()
+    Notiflix.Report.Info('Good Posture', 'Before starting, please be in good posture...', 'I am sitting up straight', function () {
+        canvas = createCanvas(width, height);
+        $('#defaultCanvas0').css('display', 'flex')
 
-    poseNet.on('pose', function (results) {
-        if (results.length > 0) {
+        $('#defaultCanvas0').css('margin', 'auto')
+        $('#defaultCanvas0').css('border', '10px solid #F44A87')
 
-            pose = results[0].pose
-            skeleton = results[0].skeleton
+        webcam_output = createCapture(VIDEO);
+        webcam_output.size(width, height);
+        poseNet = ml5.poseNet(webcam_output, modelReady);
 
-        }
+        poseNet.on('pose', function (results) {
+            if (results.length > 0) {
 
-    });
-    webcam_output.hide()
+                pose = results[0].pose
+                skeleton = results[0].skeleton
 
+            }
+
+        });
+        webcam_output.hide()
+        flippedVideo = ml5.flipImage(webcam_output);
+        classifyVideo();
+    })
+
+})
+function classifyVideo() {
+    flippedVideo = ml5.flipImage(webcam_output)
+    classifier.classify(flippedVideo, gotResult);
+    flippedVideo.remove();
+
+}
+function gotResult(error, results) {
+    if (error) {
+        console.error(error);
+        return;
+    }
+    console.log(results[0].label)
+    if (results[0].label == "Class 1") {
+
+        tiredCount += 1
+    }
+    if (tiredCount > 10) {
+        Notiflix.Notify.Warning("Maybe it's time to head to bed!");
+        tiredCount = 0
+    }
+    setTimeout(()=>{
+        classifyVideo();
+    },500)
+        
+    
 }
 
 function modelReady() {
     console.log("model loaded")
 }
 function draw() {
-    image(webcam_output, 0, 0, width, height);
+    if(webcam_output){
+        image(webcam_output, 0, 0, width, height);
     if (pose) {
-
-        if (pose["nose"] && pose["leftEar"] && pose["rightEar"] && pose["rightEye"] && pose["leftEye"]) {
-            if (defaultNosePosition.length < 1) {
-                defaultNosePosition.push(pose["nose"].y);
-            }
-            //Compare default position with current position. If the difference more than 15, it means a person doesn't keep good posture and program calls the function that blurs screen.
-            if (pose["nose"].y - defaultNosePosition[0] > 30) {
-                blurScreen();
-            }
-            //If the difference less than 15, it means a person is sitting with correct posture.
-            if (pose["nose"].y - defaultNosePosition[0] < 30) {
-                removeBlur();
-            }
-            let arr = [pose["leftEar"],pose["leftEye"],pose["rightEye"],pose["rightEar"]]
-            if(straight(arr)){
-                blurScreen()
-            }
-            if(!straight(arr)){
-                removeBlur()
-                //tonight eat class and review ai
-                //every thirty minutes, remind to excercise if position hasn't changed much
-            }
-            if(pose["nose"]){
-                if(prevNose){
-
-                    movement+=distance(pose["nose"],prevNose)
-                    prevNose=pose["nose"]
-                    
-                    
-                }
-                else{
-                    prevNose=pose["nose"]
-                }
-                
-            }
-            
-
-        }
 
 
         for (let j = 0; j < pose.keypoints.length; j++) {
@@ -95,24 +102,67 @@ function draw() {
             line(startPoint.position.x, startPoint.position.y, endPoint.position.x, endPoint.position.y);
         }
     }
+    }
     
-    //if in straight line or if nose moved down
-}
-setInterval(checkMovement, 1000*60*30);
-function checkMovement(){
-    if(movement<1000*60*30){
-        alert("Please go outside to excercise or move around a bit..")
-    }//sane and healthy while working from home
-}//if on screen go outside
 
+}
+setInterval(function () {
+    if (pose) {
+        if (pose["nose"].confidence==prevNose) {
+            movement+=1
+            //maybe track nose movement
+            /* if (prevNose) {
+    
+                movement += distance(pose["nose"], prevNose)
+                prevNose = pose["nose"]
+    
+    
+            }
+            else {
+                prevNose = pose["nose"]
+            } */
+    
+    
+        }
+        else{
+        if (pose["leftEar"].confidence>0.5 && pose["rightEar"].confidence>0.5 && pose["rightEye"].confidence>0.5 && pose["leftEye"].confidence>0.5) {
+            if (defaultNosePosition.length < 1) {
+                defaultNosePosition.push(pose["nose"].y);
+            }
+            let arr = [pose["leftEar"], pose["leftEye"], pose["rightEye"], pose["rightEar"]]
+
+            if (pose["nose"].y - defaultNosePosition[0] > 30 || straight(arr)) {
+                blurScreen();
+            }
+            if (pose["nose"].y - defaultNosePosition[0] < 30 || !straight(arr)) {
+                removeBlur();
+            }
+
+
+
+
+        }}
+        prevNose=pose["nose"].confidence
+
+    }
+    
+}, 1000)
+setInterval(checkMovement, movementTime*1000);
+function checkMovement() {
+    if (movement < 0.2*movementTime) {
+        Notiflix.Notify.Info("A kind reminder to rest from the computer ")
+        alert(movement)
+    }
+}
 function blurScreen() {
+    Notiflix.Notify.Failure("Please correct your posture!");
+
     document.body.style.filter = 'blur(10px)';
     document.body.style.transition = '0.9s';
 }
 function removeBlur() {
     document.body.style.filter = 'blur(0px)';
 }
-//if not straight
 function straight(points) {
     let totalDistance = 0
     for (var i = 0; i < points.length - 1; i++) {
@@ -120,7 +170,7 @@ function straight(points) {
 
     }
     let shortest = distance(points[0], points[points.length - 1])
-    return (totalDistance / shortest) < 1.15
+    return (totalDistance / shortest) < 1.06
 
 }
 function distance(point1, point2) {
