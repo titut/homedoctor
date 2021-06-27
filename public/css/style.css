@@ -206,6 +206,24 @@ button {
     cursor: pointer;
 }
 
+.answer-container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10em;
+}
+
+.answer-container div{
+    margin: 0em 3em;
+    cursor:pointer;
+}
+
+.answer-container div:hover{
+    width: 7em !important;
+    height: 7em !important;
+}
+
 .full {
     float: left;
     width: 100%;
@@ -216,8 +234,18 @@ button {
     padding-bottom: 0px;
 }
 
-
 /* header section start */
+
+.test-button{
+    padding: 1em;
+    border-radius: 15px;
+    font-weight: 800;
+    margin-top: 2em;
+}
+
+.test_background{
+    height:95vh !important;
+}
 
 .header_section {
     width: 100%;
