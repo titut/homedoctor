@@ -1,0 +1,1619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <!-- basic -->
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <!-- mobile metas -->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+   <!-- site metas -->
+   <title>TEST TEST TEST!</title>
+   <meta name="keywords" content="">
+   <meta name="description" content="">
+   <meta name="author" content="">
+   <!-- bootstrap css -->
+   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+   <!-- style css -->
+   <link rel="stylesheet" type="text/css" href="css/style.css">
+   <!-- Responsive-->
+   <link rel="stylesheet" href="/css/responsive.css">
+   <!-- fevicon -->
+   <link rel="icon" href="images/fevicon.png" type="image/gif" />
+   <!-- Scrollbar Custom CSS -->
+   <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+   <!-- Tweaks for older IEs-->
+   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+   <!-- owl stylesheets --> 
+   <link rel="stylesheet" href="css/owl.carousel.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+</head>
+<body>
+   <!--header section start -->
+   <div class="header_section test_background">
+      <div class="container-fluid">
+            <div class="main">
+               <div class="logo"><a href="/"><img src="images/logo.png"></a></div>
+               <div class="menu_text">
+                  <ul>
+                     <div class="togle_">
+                        <div class="menu_main">
+                           <ul>
+                              <li><a href="#">Login</a></li>
+                              <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                           </ul>
+                        </div>
+                     </div>
+                     <div id="myNav" class="overlay">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                        <div class="overlay-content">
+                           <a href="/">Home</a>
+                           <a href="protect">Protect</a>
+                           <a href="about">About</a>
+                           <a href="doctors">Doctors</a>
+                           <a href="news">News</a>
+                        </div>
+                     </div>
+                     <span class="navbar-toggler-icon"></span>
+                     <span onclick="openNav()"><img src="images/toogle-icon.png" class="toggle_menu"></span>
+                     <span onclick="openNav()"><img src="images/toogle-icon1.png" class="toggle_menu_1"></span>
+                  </ul>
+               </div>
+            </div>
+         </div>
+         <!-- banner section start -->
+         <div class="container">
+            <div class="about_taital_main">
+               <h2 class="about_tag">How has your day been?</h2>
+               <h2 style="color: white;">Ready to check-in...</h2>
+               <button class="test-button">Test now!</button>
+            </div>
+         </div>
+      <!-- banner section end -->
+   </div>
+   <!-- header section end -->
+   <!-- protect section start -->
+   <div class="protect_section layout_padding">
+      <div class="container">
+         <div class="row">
+            <div class="col-sm-12" style="display:flex; justify-content: center;">
+               <div class="card" style="width:80%; margin-top: 3em;">
+                  <div class="card-header" style="background-color: #573891; color: white; font-weight: 600; font-size: 1.25em; letter-spacing: 1px;">
+                    Test
+                  </div>
+                  <div class="card-body">
+                     <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="40"></div>
+                     </div>
+                    <h5 class="card-title" style="margin-top: 2em;">Question 1</h5>
+                    <p class="card-text">How are you feeling today?</p>
+                    <div class="answer-container">
+                        <div style="height: 5em; width: 5em;" id="happy-answer">
+                           <image src="/images/happy.png"></image>
+                        </div>
+                        <div style="height: 5em; width: 5em;" id="sad-answer">
+                           <image src="/images/sad.png"></image>
+                        </div>
+                        <div style="height: 5em; width: 5em;" id="tired-answer">
+                           <image src="/images/tired.png"></image>
+                        </div>
+                        <div style="height: 5em; width: 5em;" id="relax-answer">
+                           <image src="/images/relax.png"></image>
+                        </div>
+                    </div>
+                    <button class="btn btn-danger" style="margin-right:20px;" disabled>Back</button><button class="btn btn-success">Next</button>
+                  </div>
+                  <div class="card-body" style="display:none;">
+                     <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="40"></div>
+                     </div>
+                    <h5 class="card-title" style="margin-top: 2em;">Question 2</h5>
+                    <p class="card-text">How much time did you spend on digital devices today?</p>
+                    <div class="form-group" style="margin: 2em 1.5em;">
+                     <input type="number" class="form-control" id="digitalDeviceTime" aria-describedby="emailHelp" placeholder="" min="0" style="width: 5em; display:inline-block"> &nbsp;hours
+                   </div>
+                    <button class="btn btn-danger" style="margin-right:20px;">Back</button><button class="btn btn-success">Next</button>
+                  </div>
+                  <div class="card-body" style="display:none;">
+                     <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="40"></div>
+                     </div>
+                    <h5 class="card-title" style="margin-top: 2em;">Question 3</h5>
+                    <p class="card-text">Select places where you feel uncomfortable</p>
+                    <div class="form-group" style="display:flex; justify-content:center; margin: 2em 0em; flex-direction:column; align-items:center;">
+                     
+                        <!-- Image Map Generated by http://www.image-map.net/ -->
+                        <img src="/images/males-1859518_960_720.jpg" usemap="#image-map">
+
+                        <map name="image-map">
+                           <area id="id_maxillofacial" class="bodyParts" name="1" title="maxillofacial" href=""
+                                 coords="220,58,180,58,182,84,199,107,218,82" shape="poly">
+                           <area id="id_head" class="bodyParts" name="2" title="head" href=""
+                                 coords="198,23,175,31,165,78,188,112,212,113,234,72,224,28" shape="poly">
+                           <area id="id_neck" class="bodyParts" name="3" title="neck" href=""
+                                 coords="219,105,225,125,245,135,153,137,175,124,179,103,189,112,206,115" shape="poly">
+                           <area id="id_right_shoulder" class="bodyParts" name="20" title="right shoulder" href=""
+                                 coords="153,136,122,145,121,174,146,184" shape="poly">
+                           <area id="id_left_shoulder" class="bodyParts" name="26" title="left shoulder" href=""
+                                 coords="246,134,273,144,279,173,253,182" shape="poly">
+                           <area id="id_chest" class="bodyParts" name="4" title="chest" href=""
+                                 coords="154,138,244,135,253,184,249,267,199,226,152,264,147,182" shape="poly">
+                           <area id="id_abdominal" class="bodyParts" name="10" title="abdominal" href=""
+                                 coords="250,268,254,292,199,312,145,290,149,268,199,230" shape="poly">
+                           <area id="id_pelvis" class="bodyParts" name="9" title="pelvis" href=""
+                                 coords="254,293,256,313,201,367,140,315,145,291,199,311" shape="poly">
+                           <!-- <area  id="id_hip" class="bodyParts"  name="hip" title="hip" href="" coords="258,313,260,344,199,371,139,348,142,316,198,346" shape="poly"> -->
+                           <area id="id_left_hip" class="bodyParts" name="14" title="Left Hip" href=""
+                                 coords="258,313,260,344,204,368,215,353" shape="poly">
+                           <area id="id_right_hip" class="bodyParts" name="15" title="Right Hip" href=""
+                                 coords="141,316,139,349,196,370,185,354" shape="poly">
+                           <area id="id_left_femur_thigh" class="bodyParts" name="27" title="left femur/thigh" href=""
+                                 coords="202,369,260,345,259,443,215,457" shape="poly">
+                           <area id="id_right_femur_thigh" class="bodyParts" name="21" title="right femur/thigh" href=""
+                                 coords="197,371,183,453,140,441,136,348" shape="poly">
+                           <area id="id_left_knee" class="bodyParts" name="39" title="left knee" href=""
+                                 coords="213,457,225,507,263,498,258,444" shape="poly">
+                           <area id="id_right_knee" class="bodyParts" name="33" title="right knee" href=""
+                                 coords="187,455,142,442,136,496,174,505" shape="poly">
+                           <area id="id_right_tib_fib" class="bodyParts" name="34" title="right tib/fib" href=""
+                                 coords="174,505,137,497,128,533,144,604,161,605,172,548" shape="poly">
+                           <area id="id_left_fib_tib" class="bodyParts" name="38" title="left fib/tib" href=""
+                                 coords="226,506,226,544,237,597,257,598,268,544,265,498,244,504" shape="poly">
+                           <area id="id_left_ankle" class="bodyParts" name="42" title="left ankle" href=""
+                                 coords="238,598,255,598,256,631,231,633" shape="poly">
+                           <area id="id_right_ankle" class="bodyParts" name="35" title="right ankle" href=""
+                                 coords="163,604,145,605,143,634,167,634" shape="poly">
+                           <area id="id_right_foot" class="bodyParts" name="36" title="right foot" href=""
+                                 coords="143,633,136,680,156,697,173,692,168,636" shape="poly">
+                           <area id="id_left_foot" class="bodyParts" name="37" title="left foot" href=""
+                                 coords="230,633,225,692,246,698,261,680,257,631" shape="poly">
+                           <area id="id_right_humerus" class="bodyParts" name="32" title="right humerus" href=""
+                                 coords="146,185,148,222,142,250,115,240,123,196,120,175" shape="poly">
+                           <area id="id_right_elbow" class="bodyParts" name="22" title="right elbow" href=""
+                                 coords="117,240,142,250,140,275,110,263" shape="poly">
+                           <area id="id_right_forearm" class="bodyParts" name="23" title="right forearm" href=""
+                                 coords="140,276,123,317,103,308,106,292,109,264" shape="poly">
+                           <area id="id_right_wrist" class="bodyParts" name="24" title="right wrist" href=""
+                                 coords="124,319,117,337,95,323,103,309" shape="poly">
+                           <area id="id_right_hand" class="bodyParts" name="25" title="right hand" href=""
+                                 coords="117,337,107,378,89,388,75,377,85,343,71,346,80,330,94,323" shape="poly">
+                           <area id="id_left_hand" class="bodyParts" name="30" title="left hand" href=""
+                                 coords="285,341,304,322,317,327,333,351,317,342,324,379,309,389,291,377" shape="poly">
+                           <area id="id_left_wrist" class="bodyParts" name="31" title="left wrist" href=""
+                                 coords="284,340,279,319,296,309,305,321" shape="poly">
+                           <area id="id_left_forearm" class="bodyParts" name="28" title="left forearm" href=""
+                                 coords="261,274,290,261,297,308,276,320" shape="poly">
+                           <area id="id_left_elbow" class="bodyParts" name="29" title="left elbow" href=""
+                                 coords="290,261,281,240,256,249,258,274" shape="poly">
+                           <area id="id_left_humerus" class="bodyParts" name="40" title="left humerus" href=""
+                                 coords="278,174,279,194,283,237,256,249,253,218,254,180" shape="poly">
+                           <area id="id_skul_brain" class="bodyParts" name="19" title="skul brain" href=""
+                                 coords="462,29,454,73,469,93,515,92,527,74,515,29,491,13" shape="poly">
+                           <area id="id_spine" class="bodyParts" name="41" title="spine" href="" coords="480,101,481,313,498,312,499,100"
+                                 shape="poly">
+                           <area id="id_buttocks" class="bodyParts" name="16" title="buttocks" href=""
+                                 coords="548,312,430,313,426,366,554,366" shape="poly">
+                           <area id="id_back" class="bodyParts" name="5" title="back" href=""
+                                 coords="542,196,539,244,549,312,432,311,439,249,438,197" shape="poly">
+                           <area id="id_right_shoulder_back" class="bodyParts" name="17" title="right shoulder" href=""
+                                 coords="566,141,541,195,498,196,500,106" shape="poly">
+                           <area id="id_left_shoulder_back" class="bodyParts" name="18" title="left shoulder" href=""
+                                 coords="480,109,415,140,438,197,480,196" shape="poly">
+                           <area id="id_right_arm" class="bodyParts" name="11" title="right arm" href=""
+                                 coords="566,143,545,189,543,207,550,269,574,329,584,372,607,385,615,374,622,338,597,315,585,288,576,238,569,190"
+                                 shape="poly">
+                           <area id="id_left_arm" class="bodyParts" name="8" title="left arm" href=""
+                                 coords="398,373,377,383,368,376,360,343,371,324,392,311,397,269,405,238,410,193,408,160,416,141,437,197,430,240,429,263,408,320,399,352"
+                                 shape="poly">
+                           <area id="id_right_leg" class="bodyParts" name="7" title="right leg" href=""
+                                 coords="494,366,494,387,506,428,505,464,517,500,517,536,528,590,518,665,524,695,553,682,546,607,562,529,552,475,550,435,555,365"
+                                 shape="poly">
+                           <area id="id_left_leg" class="bodyParts" name="12" title="left leg" href=""
+                                 coords="486,367,426,367,427,442,428,475,417,527,433,602,432,634,425,675,446,695,464,684,459,629,450,596,464,539,463,497,474,472,478,423"
+                                 shape="poly">
+                        </map>
+                        <div class="form-group" id="bodyForm" style="margin: 2em 1.5em; display:flex; width: 80%; flex-direction: column;">
+                           <!--<input type="number" class="form-control" id="sleepingTime" aria-describedby="emailHelp" placeholder="" min="0" style="width: 100%; display:inline-block">-->
+                        </div>
+                   </div>
+                    <button class="btn btn-danger" style="margin-right:20px;">Back</button><button class="btn btn-success">Next</button>
+                  </div>
+                  <div class="card-body" style="display:none;">
+                     <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="40"></div>
+                     </div>
+                    <h5 class="card-title" style="margin-top: 2em;">Question 4</h5>
+                    <p class="card-text">How much sleep are you planning to have tonight?</p>
+                    <div class="form-group" style="margin: 2em 1.5em;">
+                     <input type="number" class="form-control" id="sleepingTime" aria-describedby="emailHelp" placeholder="" min="0" style="width: 5em; display:inline-block"> &nbsp;hours
+                   </div>
+                    <button class="btn btn-danger" style="margin-right:20px;">Back</button><button class="btn btn-success">Next</button>
+                  </div>
+                  <div class="card-body" style="display:none;">
+                     <div style="display:flex; flex-direction: column; justify-content:center; align-items: center;">
+                        <image src="/images/tick.png" style="width: 10em; height:10em; margin: 3em 0em;"></image>
+                        <h2 style="margin-bottom: 2em;">You've finished the quiz!</h2>
+                        <div>
+                           <button class="btn btn-danger" style="margin-right:20px;">Back</button><button class="btn btn-success">Submit</button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- protect section end -->
+   <!-- footer section start -->
+   <div class="footer_section layout_padding margin_top90">
+      <div class="container">
+         <div class="footer_section_2">
+            <div class="row">
+               <div class="col-lg-3 col-sm-6">
+                  <h2 class="useful_text">Resources</h2>
+                  <div class="footer_menu">
+                     <ul>
+                        <li><a href="#">What we do</a></li>
+                        <li><a href="#">Media</a></li>
+                        <li><a href="#">Travel Advice</a></li>
+                        <li><a href="#">Protection</a></li>
+                        <li><a href="#">Care</a></li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="col-lg-3 col-sm-6">
+                  <h2 class="useful_text">About</h2>
+                  <p class="footer_text">Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various</p>
+               </div>
+               <div class="col-lg-3 col-sm-6">
+                  <h2 class="useful_text">Contact Us</h2>
+                  <div class="location_text">
+                     <ul>
+                        <li>
+                           <a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i>
+                           <span class="padding_15">Location</span></a>
+                        </li>
+                        <li>
+                           <a href="#"><i class="fa fa-phone" aria-hidden="true"></i>
+                           <span class="padding_15">Call +01 1234567890</span></a>
+                        </li>
+                        <li>
+                           <a href="#"><i class="fa fa-envelope" aria-hidden="true"></i>
+                           <span class="padding_15">demo@gmail.com</span></a>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="col-lg-3 col-sm-6">
+                  <h2 class="useful_text">countrys</h2>
+                  <div class="map_image"><img src="images/map-bg.png"></div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- footer section end -->
+   <!-- copyright section start -->
+   <div class="copyright_section">
+      <div class="container">
+         <div class="row">
+            <div class="col-sm-12">
+               <p class="copyright_text">© 2020 All Rights Reserved.<a href="https://html.design"> Free  html Templates</a></p>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- copyright section end -->
+   <!-- Javascript files-->
+   <script src="js/jquery.min.js"></script>
+   <script src="js/popper.min.js"></script>
+   <script src="js/bootstrap.bundle.min.js"></script>
+   <script src="js/jquery-3.0.0.min.js"></script>
+   <script src="js/plugin.js"></script>
+   <script src="js/jquery.imagemapster.min.js"></script>
+   <script src="js/index.js"></script>
+   <!-- sidebar -->
+   <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+   <script src="js/custom.js"></script>
+   <!-- javascript --> 
+   <script src="js/owl.carousel.js"></script>
+   <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+   <script>
+      var symptomArr = [
+    {
+        "ID": 188,
+        "Name": "Abdominal guarding"
+    },
+    {
+        "ID": 10,
+        "Name": "Abdominal pain"
+    },
+    {
+        "ID": 223,
+        "Name": "Abdominal pain associated with menstruation"
+    },
+    {
+        "ID": 984,
+        "Name": "Absence of a pulse"
+    },
+    {
+        "ID": 974,
+        "Name": "Aggressiveness"
+    },
+    {
+        "ID": 981,
+        "Name": "Agitation"
+    },
+    {
+        "ID": 996,
+        "Name": "Ankle deformity"
+    },
+    {
+        "ID": 147,
+        "Name": "Ankle swelling"
+    },
+    {
+        "ID": 238,
+        "Name": "Anxiety"
+    },
+    {
+        "ID": 1009,
+        "Name": "Arm pain"
+    },
+    {
+        "ID": 971,
+        "Name": "Arm swelling"
+    },
+    {
+        "ID": 998,
+        "Name": "Back deformity"
+    },
+    {
+        "ID": 104,
+        "Name": "Back pain"
+    },
+    {
+        "ID": 180,
+        "Name": "Black stools"
+    },
+    {
+        "ID": 57,
+        "Name": "Blackening of vision"
+    },
+    {
+        "ID": 24,
+        "Name": "Blackhead"
+    },
+    {
+        "ID": 284,
+        "Name": "Bleeding from vagina"
+    },
+    {
+        "ID": 176,
+        "Name": "Bleeding in the conjunctiva of the eye"
+    },
+    {
+        "ID": 48,
+        "Name": "Bloated feeling in the stomach"
+    },
+    {
+        "ID": 190,
+        "Name": "Blood in stool"
+    },
+    {
+        "ID": 233,
+        "Name": "Bloody cough"
+    },
+    {
+        "ID": 991,
+        "Name": "Blue colored skin"
+    },
+    {
+        "ID": 240,
+        "Name": "Blue spot on skin"
+    },
+    {
+        "ID": 77,
+        "Name": "Blurred vision"
+    },
+    {
+        "ID": 239,
+        "Name": "Bold area among hair on the head"
+    },
+    {
+        "ID": 156,
+        "Name": "Bone fracture"
+    },
+    {
+        "ID": 250,
+        "Name": "Breathing-related pains"
+    },
+    {
+        "ID": 979,
+        "Name": "Brittleness of nails"
+    },
+    {
+        "ID": 192,
+        "Name": "Bulging abdominal wall"
+    },
+    {
+        "ID": 75,
+        "Name": "Burning eyes"
+    },
+    {
+        "ID": 46,
+        "Name": "Burning in the throat"
+    },
+    {
+        "ID": 288,
+        "Name": "Burning nose"
+    },
+    {
+        "ID": 107,
+        "Name": "Burning sensation when urinating"
+    },
+    {
+        "ID": 91,
+        "Name": "Changes in the nails"
+    },
+    {
+        "ID": 170,
+        "Name": "Cheek swelling"
+    },
+    {
+        "ID": 17,
+        "Name": "Chest pain"
+    },
+    {
+        "ID": 31,
+        "Name": "Chest tightness"
+    },
+    {
+        "ID": 175,
+        "Name": "Chills"
+    },
+    {
+        "ID": 218,
+        "Name": "Coarsening of the skin structure"
+    },
+    {
+        "ID": 89,
+        "Name": "Cold feet"
+    },
+    {
+        "ID": 978,
+        "Name": "Cold hands"
+    },
+    {
+        "ID": 139,
+        "Name": "Cold sweats"
+    },
+    {
+        "ID": 15,
+        "Name": "Cough"
+    },
+    {
+        "ID": 228,
+        "Name": "Cough with sputum"
+    },
+    {
+        "ID": 94,
+        "Name": "Cramps"
+    },
+    {
+        "ID": 49,
+        "Name": "Cravings"
+    },
+    {
+        "ID": 134,
+        "Name": "Crusting"
+    },
+    {
+        "ID": 260,
+        "Name": "Curvature of the spine"
+    },
+    {
+        "ID": 108,
+        "Name": "Dark urine"
+    },
+    {
+        "ID": 163,
+        "Name": "Decreased urine stream"
+    },
+    {
+        "ID": 165,
+        "Name": "Delayed start to urination"
+    },
+    {
+        "ID": 50,
+        "Name": "Diarrhea"
+    },
+    {
+        "ID": 79,
+        "Name": "Difficult defecation"
+    },
+    {
+        "ID": 126,
+        "Name": "Difficulty in finding words"
+    },
+    {
+        "ID": 98,
+        "Name": "Difficulty in speaking"
+    },
+    {
+        "ID": 93,
+        "Name": "Difficulty in swallowing"
+    },
+    {
+        "ID": 53,
+        "Name": "Difficulty to concentrate"
+    },
+    {
+        "ID": 1007,
+        "Name": "Difficulty to learn"
+    },
+    {
+        "ID": 1005,
+        "Name": "Difficulty with gait"
+    },
+    {
+        "ID": 216,
+        "Name": "Discoloration of nails"
+    },
+    {
+        "ID": 128,
+        "Name": "Disorientation regarding time or place"
+    },
+    {
+        "ID": 989,
+        "Name": "Distended abdomen"
+    },
+    {
+        "ID": 207,
+        "Name": "Dizziness"
+    },
+    {
+        "ID": 71,
+        "Name": "Double vision"
+    },
+    {
+        "ID": 270,
+        "Name": "Double vision, acute-onset"
+    },
+    {
+        "ID": 162,
+        "Name": "Dribbling after urination"
+    },
+    {
+        "ID": 244,
+        "Name": "Drooping eyelid"
+    },
+    {
+        "ID": 43,
+        "Name": "Drowsiness"
+    },
+    {
+        "ID": 273,
+        "Name": "Dry eyes"
+    },
+    {
+        "ID": 272,
+        "Name": "Dry mouth"
+    },
+    {
+        "ID": 151,
+        "Name": "Dry skin"
+    },
+    {
+        "ID": 87,
+        "Name": "Earache"
+    },
+    {
+        "ID": 92,
+        "Name": "Early satiety"
+    },
+    {
+        "ID": 1011,
+        "Name": "Elbow pain"
+    },
+    {
+        "ID": 1006,
+        "Name": "Enlarged calf"
+    },
+    {
+        "ID": 242,
+        "Name": "Eye blinking"
+    },
+    {
+        "ID": 287,
+        "Name": "Eye pain"
+    },
+    {
+        "ID": 33,
+        "Name": "Eye redness"
+    },
+    {
+        "ID": 208,
+        "Name": "Eyelid swelling"
+    },
+    {
+        "ID": 209,
+        "Name": "Eyelids sticking together"
+    },
+    {
+        "ID": 219,
+        "Name": "Face pain"
+    },
+    {
+        "ID": 246,
+        "Name": "Facial paralysis"
+    },
+    {
+        "ID": 970,
+        "Name": "Facial swelling"
+    },
+    {
+        "ID": 153,
+        "Name": "Fast, deepened breathing"
+    },
+    {
+        "ID": 83,
+        "Name": "Fatty defecation"
+    },
+    {
+        "ID": 982,
+        "Name": "Feeling faint"
+    },
+    {
+        "ID": 1014,
+        "Name": "Feeling ill"
+    },
+    {
+        "ID": 76,
+        "Name": "Feeling of foreign body in the eye"
+    },
+    {
+        "ID": 86,
+        "Name": "Feeling of pressure in the ear"
+    },
+    {
+        "ID": 164,
+        "Name": "Feeling of residual urine"
+    },
+    {
+        "ID": 145,
+        "Name": "Feeling of tension in the legs"
+    },
+    {
+        "ID": 11,
+        "Name": "Fever"
+    },
+    {
+        "ID": 995,
+        "Name": "Finger deformity"
+    },
+    {
+        "ID": 1013,
+        "Name": "Finger pain"
+    },
+    {
+        "ID": 1012,
+        "Name": "Finger swelling"
+    },
+    {
+        "ID": 214,
+        "Name": "Flaking skin"
+    },
+    {
+        "ID": 245,
+        "Name": "Flaking skin on the head"
+    },
+    {
+        "ID": 154,
+        "Name": "Flatulence"
+    },
+    {
+        "ID": 255,
+        "Name": "Foot pain"
+    },
+    {
+        "ID": 1002,
+        "Name": "Foot swelling"
+    },
+    {
+        "ID": 125,
+        "Name": "Forgetfulness"
+    },
+    {
+        "ID": 62,
+        "Name": "Formation of blisters on a skin area"
+    },
+    {
+        "ID": 84,
+        "Name": "Foul smelling defecation"
+    },
+    {
+        "ID": 59,
+        "Name": "Frequent urination"
+    },
+    {
+        "ID": 110,
+        "Name": "Genital warts"
+    },
+    {
+        "ID": 152,
+        "Name": "Hair loss"
+    },
+    {
+        "ID": 976,
+        "Name": "Hallucination"
+    },
+    {
+        "ID": 72,
+        "Name": "Halo"
+    },
+    {
+        "ID": 186,
+        "Name": "Hand pain"
+    },
+    {
+        "ID": 148,
+        "Name": "Hand swelling"
+    },
+    {
+        "ID": 80,
+        "Name": "Hard defecation"
+    },
+    {
+        "ID": 184,
+        "Name": "Hardening of the skin"
+    },
+    {
+        "ID": 9,
+        "Name": "Headache"
+    },
+    {
+        "ID": 206,
+        "Name": "Hearing loss"
+    },
+    {
+        "ID": 985,
+        "Name": "Heart murmur"
+    },
+    {
+        "ID": 45,
+        "Name": "Heartburn"
+    },
+    {
+        "ID": 122,
+        "Name": "Hiccups"
+    },
+    {
+        "ID": 993,
+        "Name": "Hip deformity"
+    },
+    {
+        "ID": 196,
+        "Name": "Hip pain"
+    },
+    {
+        "ID": 121,
+        "Name": "Hoarseness"
+    },
+    {
+        "ID": 149,
+        "Name": "Hot flushes"
+    },
+    {
+        "ID": 197,
+        "Name": "Immobilization"
+    },
+    {
+        "ID": 120,
+        "Name": "Impaired balance"
+    },
+    {
+        "ID": 90,
+        "Name": "Impaired hearing"
+    },
+    {
+        "ID": 70,
+        "Name": "Impaired light-dark adaptation"
+    },
+    {
+        "ID": 113,
+        "Name": "Impairment of male potency"
+    },
+    {
+        "ID": 81,
+        "Name": "Incomplete defecation"
+    },
+    {
+        "ID": 131,
+        "Name": "Increased appetite"
+    },
+    {
+        "ID": 262,
+        "Name": "Increased drive"
+    },
+    {
+        "ID": 204,
+        "Name": "Increased salivation"
+    },
+    {
+        "ID": 40,
+        "Name": "Increased thirst"
+    },
+    {
+        "ID": 220,
+        "Name": "Increased touch sensitivity"
+    },
+    {
+        "ID": 39,
+        "Name": "Increased urine quantity"
+    },
+    {
+        "ID": 257,
+        "Name": "Involuntary movements"
+    },
+    {
+        "ID": 986,
+        "Name": "Irregular heartbeat"
+    },
+    {
+        "ID": 65,
+        "Name": "Irregular mole"
+    },
+    {
+        "ID": 73,
+        "Name": "Itching eyes"
+    },
+    {
+        "ID": 88,
+        "Name": "Itching in the ear"
+    },
+    {
+        "ID": 973,
+        "Name": "Itching in the mouth or throat"
+    },
+    {
+        "ID": 96,
+        "Name": "Itching in the nose"
+    },
+    {
+        "ID": 21,
+        "Name": "Itching of skin"
+    },
+    {
+        "ID": 999,
+        "Name": "Itching of the anus"
+    },
+    {
+        "ID": 247,
+        "Name": "Itching on head"
+    },
+    {
+        "ID": 268,
+        "Name": "Itching or burning in the genital area"
+    },
+    {
+        "ID": 194,
+        "Name": "Joint effusion"
+    },
+    {
+        "ID": 198,
+        "Name": "Joint instability"
+    },
+    {
+        "ID": 27,
+        "Name": "Joint pain"
+    },
+    {
+        "ID": 230,
+        "Name": "Joint redness"
+    },
+    {
+        "ID": 193,
+        "Name": "Joint swelling"
+    },
+    {
+        "ID": 47,
+        "Name": "Joylessness"
+    },
+    {
+        "ID": 994,
+        "Name": "Knee deformity"
+    },
+    {
+        "ID": 256,
+        "Name": "Knee pain"
+    },
+    {
+        "ID": 146,
+        "Name": "Leg cramps"
+    },
+    {
+        "ID": 1010,
+        "Name": "Leg pain"
+    },
+    {
+        "ID": 231,
+        "Name": "Leg swelling"
+    },
+    {
+        "ID": 143,
+        "Name": "Leg ulcer"
+    },
+    {
+        "ID": 82,
+        "Name": "Less than 3 defecations per week"
+    },
+    {
+        "ID": 992,
+        "Name": "Limited mobility of the ankle"
+    },
+    {
+        "ID": 167,
+        "Name": "Limited mobility of the back"
+    },
+    {
+        "ID": 178,
+        "Name": "Limited mobility of the fingers"
+    },
+    {
+        "ID": 1000,
+        "Name": "Limited mobility of the hip"
+    },
+    {
+        "ID": 195,
+        "Name": "Limited mobility of the leg"
+    },
+    {
+        "ID": 35,
+        "Name": "Lip swelling"
+    },
+    {
+        "ID": 205,
+        "Name": "Lockjaw"
+    },
+    {
+        "ID": 210,
+        "Name": "Loss of eye lashes"
+    },
+    {
+        "ID": 174,
+        "Name": "Lower abdominal pain"
+    },
+    {
+        "ID": 263,
+        "Name": "Lower-back pain"
+    },
+    {
+        "ID": 261,
+        "Name": "Lump in the breast"
+    },
+    {
+        "ID": 266,
+        "Name": "Malposition of the testicles"
+    },
+    {
+        "ID": 232,
+        "Name": "Marked veins"
+    },
+    {
+        "ID": 235,
+        "Name": "Memory gap"
+    },
+    {
+        "ID": 112,
+        "Name": "Menstruation disorder"
+    },
+    {
+        "ID": 123,
+        "Name": "Missed period"
+    },
+    {
+        "ID": 215,
+        "Name": "Moist and softened skin"
+    },
+    {
+        "ID": 85,
+        "Name": "Mood swings"
+    },
+    {
+        "ID": 983,
+        "Name": "Morning stiffness"
+    },
+    {
+        "ID": 135,
+        "Name": "Mouth pain"
+    },
+    {
+        "ID": 97,
+        "Name": "Mouth ulcers"
+    },
+    {
+        "ID": 177,
+        "Name": "Muscle pain"
+    },
+    {
+        "ID": 119,
+        "Name": "Muscle stiffness"
+    },
+    {
+        "ID": 987,
+        "Name": "Muscle weakness"
+    },
+    {
+        "ID": 252,
+        "Name": "Muscular atrophy in the leg"
+    },
+    {
+        "ID": 202,
+        "Name": "Muscular atrophy of the arm"
+    },
+    {
+        "ID": 168,
+        "Name": "Muscular weakness in the arm"
+    },
+    {
+        "ID": 253,
+        "Name": "Muscular weakness in the leg"
+    },
+    {
+        "ID": 44,
+        "Name": "Nausea"
+    },
+    {
+        "ID": 136,
+        "Name": "Neck pain"
+    },
+    {
+        "ID": 234,
+        "Name": "Neck stiffness"
+    },
+    {
+        "ID": 114,
+        "Name": "Nervousness"
+    },
+    {
+        "ID": 133,
+        "Name": "Night cough"
+    },
+    {
+        "ID": 1004,
+        "Name": "Night sweats"
+    },
+    {
+        "ID": 63,
+        "Name": "Non-healing skin wound"
+    },
+    {
+        "ID": 38,
+        "Name": "Nosebleed"
+    },
+    {
+        "ID": 221,
+        "Name": "Numbness in the arm"
+    },
+    {
+        "ID": 254,
+        "Name": "Numbness in the leg"
+    },
+    {
+        "ID": 200,
+        "Name": "Numbness of the hands"
+    },
+    {
+        "ID": 137,
+        "Name": "Oversensitivity to light"
+    },
+    {
+        "ID": 157,
+        "Name": "Overweight"
+    },
+    {
+        "ID": 155,
+        "Name": "Pain in the bones"
+    },
+    {
+        "ID": 142,
+        "Name": "Pain in the calves"
+    },
+    {
+        "ID": 12,
+        "Name": "Pain in the limbs"
+    },
+    {
+        "ID": 990,
+        "Name": "Pain of the anus"
+    },
+    {
+        "ID": 203,
+        "Name": "Pain on swallowing"
+    },
+    {
+        "ID": 251,
+        "Name": "Pain radiating to the arm"
+    },
+    {
+        "ID": 103,
+        "Name": "Pain radiating to the leg"
+    },
+    {
+        "ID": 286,
+        "Name": "Pain when chewing"
+    },
+    {
+        "ID": 189,
+        "Name": "Painful defecation"
+    },
+    {
+        "ID": 109,
+        "Name": "Painful urination"
+    },
+    {
+        "ID": 150,
+        "Name": "Pallor"
+    },
+    {
+        "ID": 37,
+        "Name": "Palpitations"
+    },
+    {
+        "ID": 140,
+        "Name": "Paralysis"
+    },
+    {
+        "ID": 118,
+        "Name": "Physical inactivity"
+    },
+    {
+        "ID": 129,
+        "Name": "Problems with the sense of touch in the face"
+    },
+    {
+        "ID": 130,
+        "Name": "Problems with the sense of touch in the feet"
+    },
+    {
+        "ID": 258,
+        "Name": "Protrusion of the eyes"
+    },
+    {
+        "ID": 172,
+        "Name": "Purulent discharge from the urethra"
+    },
+    {
+        "ID": 173,
+        "Name": "Purulent discharge from the vagina"
+    },
+    {
+        "ID": 191,
+        "Name": "Rebound tenderness"
+    },
+    {
+        "ID": 54,
+        "Name": "Reduced appetite"
+    },
+    {
+        "ID": 78,
+        "Name": "Ringing in the ear"
+    },
+    {
+        "ID": 14,
+        "Name": "Runny nose"
+    },
+    {
+        "ID": 975,
+        "Name": "Sadness"
+    },
+    {
+        "ID": 269,
+        "Name": "Scalp redness"
+    },
+    {
+        "ID": 1001,
+        "Name": "Scar"
+    },
+    {
+        "ID": 60,
+        "Name": "Sensitivity to cold"
+    },
+    {
+        "ID": 69,
+        "Name": "Sensitivity to glare"
+    },
+    {
+        "ID": 102,
+        "Name": "Sensitivity to noise"
+    },
+    {
+        "ID": 264,
+        "Name": "Shiny red tongue"
+    },
+    {
+        "ID": 29,
+        "Name": "Shortness of breath"
+    },
+    {
+        "ID": 183,
+        "Name": "Side pain"
+    },
+    {
+        "ID": 26,
+        "Name": "Skin lesion"
+    },
+    {
+        "ID": 25,
+        "Name": "Skin nodules"
+    },
+    {
+        "ID": 124,
+        "Name": "Skin rash"
+    },
+    {
+        "ID": 61,
+        "Name": "Skin redness"
+    },
+    {
+        "ID": 217,
+        "Name": "Skin thickening"
+    },
+    {
+        "ID": 34,
+        "Name": "Skin wheal"
+    },
+    {
+        "ID": 241,
+        "Name": "Sleepiness with spontaneous falling asleep"
+    },
+    {
+        "ID": 52,
+        "Name": "Sleeplessness"
+    },
+    {
+        "ID": 95,
+        "Name": "Sneezing"
+    },
+    {
+        "ID": 13,
+        "Name": "Sore throat"
+    },
+    {
+        "ID": 64,
+        "Name": "Sputum"
+    },
+    {
+        "ID": 179,
+        "Name": "Stomach burning"
+    },
+    {
+        "ID": 185,
+        "Name": "Stress-related leg pain"
+    },
+    {
+        "ID": 28,
+        "Name": "Stuffy nose"
+    },
+    {
+        "ID": 138,
+        "Name": "Sweating"
+    },
+    {
+        "ID": 236,
+        "Name": "Swelling in the genital area"
+    },
+    {
+        "ID": 267,
+        "Name": "Swelling of the testicles"
+    },
+    {
+        "ID": 248,
+        "Name": "Swollen glands in the armpit"
+    },
+    {
+        "ID": 249,
+        "Name": "Swollen glands in the groin"
+    },
+    {
+        "ID": 169,
+        "Name": "Swollen glands in the neck"
+    },
+    {
+        "ID": 211,
+        "Name": "Tears"
+    },
+    {
+        "ID": 222,
+        "Name": "Testicular pain"
+    },
+    {
+        "ID": 243,
+        "Name": "Tic"
+    },
+    {
+        "ID": 201,
+        "Name": "Tingling"
+    },
+    {
+        "ID": 16,
+        "Name": "Tiredness"
+    },
+    {
+        "ID": 997,
+        "Name": "Toe deformity"
+    },
+    {
+        "ID": 1003,
+        "Name": "Toe swelling"
+    },
+    {
+        "ID": 980,
+        "Name": "Tongue burning"
+    },
+    {
+        "ID": 977,
+        "Name": "Tongue swelling"
+    },
+    {
+        "ID": 1008,
+        "Name": "Toothache"
+    },
+    {
+        "ID": 115,
+        "Name": "Tremor at rest"
+    },
+    {
+        "ID": 132,
+        "Name": "Tremor on movement"
+    },
+    {
+        "ID": 988,
+        "Name": "Trouble understanding speech"
+    },
+    {
+        "ID": 144,
+        "Name": "Unconsciousness, short"
+    },
+    {
+        "ID": 265,
+        "Name": "Uncontrolled defecation"
+    },
+    {
+        "ID": 116,
+        "Name": "Underweight"
+    },
+    {
+        "ID": 160,
+        "Name": "Urge to urinate"
+    },
+    {
+        "ID": 161,
+        "Name": "Urination during the night"
+    },
+    {
+        "ID": 68,
+        "Name": "Vision impairment"
+    },
+    {
+        "ID": 213,
+        "Name": "Vision impairment for far objects"
+    },
+    {
+        "ID": 166,
+        "Name": "Vision impairment for near objects"
+    },
+    {
+        "ID": 66,
+        "Name": "Visual field loss"
+    },
+    {
+        "ID": 101,
+        "Name": "Vomiting"
+    },
+    {
+        "ID": 181,
+        "Name": "Vomiting blood"
+    },
+    {
+        "ID": 972,
+        "Name": "Weakness or numbness on right or left side of body"
+    },
+    {
+        "ID": 23,
+        "Name": "Weight gain"
+    },
+    {
+        "ID": 22,
+        "Name": "Weight loss"
+    },
+    {
+        "ID": 30,
+        "Name": "Wheezing"
+    },
+    {
+        "ID": 187,
+        "Name": "Wound"
+    },
+    {
+        "ID": 105,
+        "Name": "Yellow colored skin"
+    },
+    {
+        "ID": 106,
+        "Name": "Yellowish discoloration of the white part of the eye"
+    }
+];
+      var curQuestion = 0;
+      var question1options = ["happy", "sad", "tired", "relax"];
+      var answers = {
+         "question1": null,
+         "question2": null,
+         "question3": [],
+         "question4": null
+      }
+      $(document).ready(function(){
+      $(".fancybox").fancybox({
+      openEffect: "none",
+      closeEffect: "none"
+      });
+            
+      $(".zoom").hover(function(){
+            
+      $(this).addClass('transition');
+      }, function(){
+      $(this).removeClass('transition');
+      });
+      });
+      $(".test-button").click(function(){
+         $([document.documentElement, document.body]).animate({
+            scrollTop: $(".protect_section").offset().top
+         }, 50);
+      })
+      $(".btn.btn-success:enabled").click(async (e)=>{
+         if(e.target.innerHTML != "Submit"){
+            curQuestion++;
+            let questions = $(".card-body");
+            let index = 0;
+            for(let question of questions){
+               if(index == curQuestion){
+                  question.style.display = "initial";
+               } else {
+                  question.style.display = "none";
+               }
+               index++;
+            }
+         } else {
+            let valid = true;
+            for(let answer of Object.keys(answers)){
+               if(answers[answer] == null){
+                  console.log(answer);
+                  valid = false;
+               }
+            }
+            if(valid){
+               let cards = $(".card-body");
+               for(let card of cards){
+                  card.remove();
+               }
+               $(".card").append(`
+               <div class="card-body" style="display:initial;">
+                     <div style="display:flex; flex-direction: column; justify-content:center; align-items: center;">
+                        <image src="/images/tick.png" style="width: 10em; height:10em; margin: 3em 0em;"></image>
+                        <h2 style="margin-bottom: 2em;">Test has been submitted!</h2>
+                        <div id="finishedInfo">
+
+                        </div>
+                     </div>
+               </div>
+               `)
+               let req = await fetch("http://localhost:6969/endofdaytest", {
+                  method: "POST",
+                  headers:{
+                     "Content-Type":"application/json",
+                  },
+                  body: JSON.stringify(answers)
+               })
+               let fetchResponse = await req.json();
+               $("#finishedInfo").append(JSON.stringify(`
+               <p>${fetchResponse}</p>
+               `));
+            } else {
+               alert("Unfilled Question");
+            }
+         }
+      })
+      $(".btn.btn-danger:enabled").click(()=>{
+         curQuestion--;
+         let questions = $(".card-body");
+         let index = 0;
+         for(let question of questions){
+            if(index == curQuestion){
+               question.style.display = "initial";
+            } else {
+               question.style.display = "none";
+            }
+            index++;
+         }
+      })
+      $("area").click(function(e){
+         if(answers.question3.indexOf(e.target.title) == -1){
+            answers.question3.push(e.target.title);
+         } else {
+            answers.question3.splice(answers.question3.indexOf(e.target.title), 1);
+         }
+         if(answers.question3.length == 0){
+            $("#bodyForm").html("");
+         }
+         for(let i = 0; i < answers.question3.length; i++){
+            if(i == 0){
+               $("#bodyForm").html(`
+            <input class="form-control" aria-describedby="emailHelp" placeholder="Enter your ${answers.question3[i]} problem..." min="0" style="width: 100%; display:inline-block; margin-bottom: 2em;">
+            `);
+            } else {
+            $("#bodyForm").append(`
+            <input class="form-control" aria-describedby="emailHelp" placeholder="Enter your ${answers.question3[i]} problem..." min="0" style="width: 100%; display:inline-block; margin-bottom: 2em;">
+            `);
+            }
+            $("#bodyForm input").keyup(function(e){
+               let topVal = $(e.target).offset().top + 38;
+               let words = 0;
+               let autos = $(".autocomplete");
+               for(let auto of autos){
+                  auto.remove();
+               }
+               for(let i = 0; i < symptomArr.length; i++){
+                  if(symptomArr[i].Name.toLowerCase().includes(e.target.value.toLowerCase())){
+                     words++;
+                     $(document.body).append(`<div class="autocomplete" style="position:absolute; top: ${topVal + ((words-1) * 40)}px; width: 100%; display:flex; justify-content:center;"><div style="cursor: pointer; width: 50%; padding-top: 7px; height: 40px; background-color:white; border: 1px solid black;">` + symptomArr[i].Name + "</div></div>")
+                     console.log(symptomArr[i].Name);
+                  }
+                  if(words > 10){
+                     break;
+                  }
+               }
+               $(".autocomplete").hover(function(){
+                  $($(this).children()[0]).css("background-color", "#d9d9d9");
+               }, function(){
+                  $($(this).children()[0]).css("background-color", "white");
+               })
+                  
+            })
+            $("#bodyForm input").focusout(function(){
+               let autos = $(".autocomplete");
+               for(let auto of autos){
+                  auto.remove();
+               }
+            })
+         }
+      })
+      for(let i of question1options){
+         $("#" + i + "-answer").click(function(){
+            for(let j of question1options){
+               $("#" + j + "-answer")[0].style.height = "5em";
+               $("#" + j + "-answer")[0].style.width = "5em";
+            }
+            $("#" + i + "-answer")[0].style.height = "7em";
+            $("#" + i + "-answer")[0].style.width = "7em";
+            answers.question1 = i;
+         })
+      }
+      $("#digitalDeviceTime").change(function(e){
+         answers.question2 = e.target.value;
+      })
+      $("#sleepingTime").change(function(e){
+         answers.question4 = e.target.value;
+      })
+   </script> 
+   <script>
+      function openNav() {
+      document.getElementById("myNav").style.width = "100%";
+      }
+      function closeNav() {
+      document.getElementById("myNav").style.width = "0%";
+      }
+   </script>  
+</body>
+</html>
