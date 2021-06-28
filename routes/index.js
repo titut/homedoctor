@@ -1,6 +1,9 @@
+const { text } = require('express');
 var express = require('express');
 var router = express.Router();
 var fetch = require('node-fetch');
+var cryptoJS = require('crypto-js');
+var quotes = require('./../public/json/quotes.json');
 
 /* GET home page. */
 
@@ -29,8 +32,6 @@ router.get('/protect', function(req,res,next){
 })
 
 router.post('/endofdaytest', async function(req,res,next){
-  console.log(req.body.question3);
-  let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImNvbmdob2FuZy5sZUBzdHVkZW50cy5sZmFuZXQub3JnIiwicm9sZSI6IlVzZXIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiI5MzE4IiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy92ZXJzaW9uIjoiMjAwIiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9saW1pdCI6Ijk5OTk5OTk5OSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbWVtYmVyc2hpcCI6IlByZW1pdW0iLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xhbmd1YWdlIjoiZW4tZ2IiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL2V4cGlyYXRpb24iOiIyMDk5LTEyLTMxIiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwc3RhcnQiOiIyMDIxLTA2LTI2IiwiaXNzIjoiaHR0cHM6Ly9zYW5kYm94LWF1dGhzZXJ2aWNlLnByaWFpZC5jaCIsImF1ZCI6Imh0dHBzOi8vaGVhbHRoc2VydmljZS5wcmlhaWQuY2giLCJleHAiOjE2MjQ3ODA3OTcsIm5iZiI6MTYyNDc3MzU5N30.2nHeVvLfxTjg6M792iP7dHvK2p_BQCtC_zbLfX6jcJ4"
   let symptoms = [
     {
       "ID": 188,
@@ -1158,7 +1159,7 @@ router.post('/endofdaytest', async function(req,res,next){
     }
   ]
   let arrSimptoms = [];
-  let bodyParts = req.body.question3;
+  let bodyParts = req.body.question2;
   for(let simp of symptoms){
     for(let part of bodyParts){
       if(simp.Name.toLowerCase().includes(part)){
@@ -1167,11 +1168,58 @@ router.post('/endofdaytest', async function(req,res,next){
       }
     }
   }
+
+  let apiKey = "conghoang.le@students.lfanet.org";
+  let clientSecret = "Gj4w3K9Tbg8ELy67M";
+  let hashedString = cryptoJS.MD5(clientSecret, "https://sandbox-authservice.priaid.ch/login?format=json");
+  let getToken = await fetch("https://sandbox-authservice.priaid.ch/login", {
+    method:"POST",
+    headers:{
+      Authorization: "Bearer conghoang.le@students.lfanet.org:vSF/a0SGKlSBeZ19IPuX7Q=="
+    }
+  })
+  let token = (await getToken.json()).Token;
   let diagnosisLink = "https://sandbox-healthservice.priaid.ch/diagnosis?symptoms=["+arrSimptoms+"]&gender=male&year_of_birth=2004&format=json&language=en-gb&token=" + token;
   let diagnosisReq = await fetch(diagnosisLink, {
     method: "GET"
   });
-  res.send(symptoms);
+
+  let sentimentalReq = await fetch(" https://svc02.api.bitext.com/sentiment/", {
+    method:"POST",
+    headers:{
+      "Content-Type": "application/json",
+      "Authorization": "bearer 9732e12af6a64f218ebdde7970c0d915"
+    },
+    body:JSON.stringify({
+      "language": "eng",
+      "text": req.body.question1
+    })
+  })
+  let resultid = ((await sentimentalReq.json()).resultid);
+  let getResult = await fetch("https://svc02.api.bitext.com/sentiment/" + resultid, {
+    method:"GET",
+    headers:{
+      "Content-Type": "application/json",
+      "Authorization": "bearer 9732e12af6a64f218ebdde7970c0d915"
+    }
+  });
+  let sentiment = (await getResult.json()).sentimentanalysis;
+  let arrOfPossibleWords = [];
+  for(let obj of sentiment){
+    if(obj.text != ''){
+      arrOfPossibleWords.push(obj.text);
+    }
+  }
+  let possibleQuotes = [];
+  for(let word of arrOfPossibleWords){
+    let filtered = quotes.filter(quote => quote["Quote"].toLowerCase().includes(word.toLowerCase()));
+    possibleQuotes = [...possibleQuotes, ...filtered];
+  }
+  let randomIndex = Math.floor(Math.random() * possibleQuotes.length);
+  res.send({
+    "disease":(await diagnosisReq.json())[0].Issue.Name,
+    "quote": possibleQuotes[randomIndex]["Quote"]
+  });
 })
 
 module.exports = router;
