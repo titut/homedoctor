@@ -58,7 +58,7 @@
                         <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="40"></div>
                      </div>
                     <h5 class="card-title" style="margin-top: 2em;">Question 1</h5>
-                    <p class="card-text">How was your day?</p>
+                    <p class="card-text">How was your day? You can vent all your feelings here!</p>
                     <div class="form-group" style="margin: 2em 1.5em;">
                      <input class="form-control" id="digitalDeviceTime" aria-describedby="emailHelp" placeholder="" min="0" style="width: 100%; display:inline-block">
                    </div>
@@ -1375,7 +1375,6 @@
     }
 ];
       var curQuestion = 0;
-      var question1options = ["happy", "sad", "tired", "relax"];
       var answers = {
          "question1": null,
          "question2": [],
@@ -1443,7 +1442,7 @@
                   body: JSON.stringify(answers)
                })
                let fetchResponse = await req.json();
-               $("#finishedInfo").append(JSON.stringify(`<p>Potential Problem: ${fetchResponse.disease}</p><p>Quote of the day: ${fetchResponse.quote}</p>`));
+               $("#finishedInfo").append(JSON.stringify(`<p>Potential Problem: ${fetchResponse.disease} <a style=color:#1a0dab;margin-left:1em; href=https://www.google.com/search?q=${fetchResponse.disease.replace(" ", "+")}>Find out more...</a></p><p>Quote of the day: ${fetchResponse.quote}</p>`));
             } else {
                alert("Unfilled Question");
             }
@@ -1488,28 +1487,39 @@
                for(let auto of autos){
                   auto.remove();
                }
-               for(let i = 0; i < symptomArr.length; i++){
-                  if(symptomArr[i].Name.toLowerCase().includes(e.target.value.toLowerCase())){
+               for(let j = 0; j < symptomArr.length; j++){
+                  if(symptomArr[j].Name.toLowerCase().includes(e.target.value.toLowerCase())){
                      words++;
-                     $(document.body).append(`<div class="autocomplete" style="position:absolute; top: ${topVal + ((words-1) * 40)}px; width: 100%; display:flex; justify-content:center;"><div style="cursor: pointer; width: 50%; padding-top: 7px; height: 40px; background-color:white; border: 1px solid black;">` + symptomArr[i].Name + "</div></div>")
-                     console.log(symptomArr[i].Name);
+                     $(document.body).append(`<div class="autocomplete" style="position:absolute; top: ${topVal + ((words-1) * 40)}px; width: 100%; display:flex; justify-content:center;"><div style="cursor: pointer; width: 50%; padding-top: 7px; height: 40px; background-color:white; border: 1px solid black;" data-id="${i}">` + symptomArr[j].Name + "</div></div>")
+                     console.log(symptomArr[j].Name);
                   }
                   if(words > 10){
                      break;
                   }
                }
-               $(".autocomplete").hover(function(){
-                  $($(this).children()[0]).css("background-color", "#d9d9d9");
+               $(".autocomplete div").hover(function(){
+                    $("#bodyForm input").focusout(function(e){})
+                  $(this).css("background-color", "#d9d9d9");
                }, function(){
-                  $($(this).children()[0]).css("background-color", "white");
+                  $(this).css("background-color", "white");
+                  $(document.body).click(function(e){
+                    if($(e.target).data("id") == undefined){
+                        let autos = $(".autocomplete");
+                        for(let auto of autos){
+                            auto.remove();
+                        }
+                    }
+                    })
+               });
+               $(".autocomplete div").click(function(){
+                   let inputs = $("#bodyForm input");
+                   for(let ob in inputs){
+                    if(ob == $(this).data("id")){
+                        $(inputs[ob]).val($(this).text());
+                    }
+                   }
+                   
                })
-                  
-            })
-            $("#bodyForm input").focusout(function(){
-               let autos = $(".autocomplete");
-               for(let auto of autos){
-                  auto.remove();
-               }
             })
          }
       })
