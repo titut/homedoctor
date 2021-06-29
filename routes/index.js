@@ -7,6 +7,10 @@ var quotes = require('./../public/json/quotes.json');
 
 /* GET home page. */
 
+router.get('/', function(req,res,next){
+  res.render('index');
+})
+
 router.get('/test', function(req,res,next){
   res.render('test')
 })
@@ -15,7 +19,7 @@ router.get('/image', function(req, res, next) {
   res.render('image');
 });
 
-router.get('/about', function(req,res,next){
+router.get('/about', function(req,res,next){x 
   res.render('about');
 })
 
