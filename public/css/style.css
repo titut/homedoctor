@@ -250,7 +250,7 @@ button {
 .header_section {
     width: 100%;
     float: left;
-    background-image: url(../images/banner-bg.png);
+    background:black;
     height: auto;
     height: auto;
     padding: 20px 0px;

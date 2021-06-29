@@ -6,7 +6,9 @@ var cryptoJS = require('crypto-js');
 var quotes = require('./../public/json/quotes.json');
 
 /* GET home page. */
-
+router.get('/', function(req,res,next){
+  res.render('index')
+})
 router.get('/test', function(req,res,next){
   res.render('test')
 })
@@ -15,11 +17,9 @@ router.get('/image', function(req, res, next) {
   res.render('image');
 });
 
-router.get('/about', function(req,res,next){
-  res.render('about');
-})
 
-router.get('/doctors', function(req,res,next){
+
+/* router.get('/doctors', function(req,res,next){
   res.render('doctors');
 })
 
@@ -29,7 +29,7 @@ router.get('/news', function(req,res,next){
 
 router.get('/protect', function(req,res,next){
   res.render('protect');
-})
+}) */
 
 router.post('/endofdaytest', async function(req,res,next){
   let symptoms = [
