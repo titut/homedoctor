@@ -6,9 +6,7 @@ var cryptoJS = require('crypto-js');
 var quotes = require('./../public/json/quotes.json');
 
 /* GET home page. */
-router.get('/', function(req,res,next){
-  res.render('index')
-})
+
 router.get('/test', function(req,res,next){
   res.render('test')
 })
@@ -17,9 +15,11 @@ router.get('/image', function(req, res, next) {
   res.render('image');
 });
 
+router.get('/about', function(req,res,next){
+  res.render('about');
+})
 
-
-/* router.get('/doctors', function(req,res,next){
+router.get('/doctors', function(req,res,next){
   res.render('doctors');
 })
 
@@ -29,9 +29,11 @@ router.get('/news', function(req,res,next){
 
 router.get('/protect', function(req,res,next){
   res.render('protect');
-}) */
+})
 
 router.post('/endofdaytest', async function(req,res,next){
+
+
   let symptoms = [
     {
       "ID": 188,
@@ -1169,6 +1171,7 @@ router.post('/endofdaytest', async function(req,res,next){
     }
   }
 
+
   let apiKey = "conghoang.le@students.lfanet.org";
   let clientSecret = "Gj4w3K9Tbg8ELy67M";
   let hashedString = cryptoJS.MD5(clientSecret, "https://sandbox-authservice.priaid.ch/login?format=json");
@@ -1183,6 +1186,7 @@ router.post('/endofdaytest', async function(req,res,next){
   let diagnosisReq = await fetch(diagnosisLink, {
     method: "GET"
   });
+
 
   let sentimentalReq = await fetch(" https://svc02.api.bitext.com/sentiment/", {
     method:"POST",
@@ -1204,6 +1208,8 @@ router.post('/endofdaytest', async function(req,res,next){
     }
   });
   let sentiment = (await getResult.json()).sentimentanalysis;
+
+
   let arrOfPossibleWords = [];
   for(let obj of sentiment){
     if(obj.text != ''){
@@ -1216,6 +1222,8 @@ router.post('/endofdaytest', async function(req,res,next){
     possibleQuotes = [...possibleQuotes, ...filtered];
   }
   let randomIndex = Math.floor(Math.random() * possibleQuotes.length);
+
+
   res.send({
     "disease":(await diagnosisReq.json())[0].Issue.Name,
     "quote": possibleQuotes[randomIndex]["Quote"]
