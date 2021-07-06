@@ -14,15 +14,15 @@ router.get('/test', function(req,res,next){
   res.render('test')
 })
 
-router.get('/image', function(req, res, next) {
+/* router.get('/image', function(req, res, next) {
   res.render('image');
 });
-
-router.get('/about', function(req,res,next){x 
+ */
+/* router.get('/about', function(req,res,next){x 
   res.render('about');
-})
+}) */
 
-router.get('/doctors', function(req,res,next){
+/* router.get('/doctors', function(req,res,next){
   res.render('doctors');
 })
 
@@ -32,7 +32,7 @@ router.get('/news', function(req,res,next){
 
 router.get('/protect', function(req,res,next){
   res.render('protect');
-})
+}) */
 
 router.post('/endofdaytest', async function(req,res,next){
 
