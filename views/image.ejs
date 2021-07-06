@@ -6,22 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="js/webgazer.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js" type="text/javascript"></script>
+    <script src="https://unpkg.com/ml5@0.6.0/dist/ml5.min.js" type="text/javascript"></script>
+
     <script src="js/jquery.min.js"></script>
     <script>
-        var loc_array = {}
+        let canvas
+        let webcam_output
+        let width = $(window).width() > 880 ? 880 : $(window).width()
+        let height = width * 3 / 4
+        function setup(){
+            canvas = createCanvas(width, height)
+            webcam_output = createCapture(VIDEO);
+            webcam_output.hide()
+            var loc_array = {}
         let start = new Date()
         
         // variable to count the number of undefines (used for ratio of distraction)
         var distracted = 0 // should be up here if it should be reset by the user
         let check_time_length =  300// 300 representing 5 minutes
 
-        webgazer.begin()
+        webgazer.setVideoElementCanvas(canvas)
         webgazer.setGazeListener(function(data) {
             var now = new Date()
 
             time_diff = Math.round((now - start) / 1000)
             //console.log(time_diff)
-            console.log(data)
+            //console.log(data)
             if (data !== null) {
                 var xprediction = data.x; //these x coordinates are relative to the viewport
                 var yprediction = data.y; //these y coordinates are relative to the viewport
@@ -54,6 +66,12 @@
                 }
             }
         }).begin();
+        }
+        function draw(){
+            image(webcam_output, 0, 0, width, height);
+        }
+        
+        //webgazer.showVideoPreview(false).showPredictionPoints(false)
     </script>
 </head>
 <body>

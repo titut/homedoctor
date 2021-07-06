@@ -4,8 +4,7 @@ let pose;
 let skeleton
 let defaultNosePosition = []
 let movement = 0
-let movementTime =30//60*30
-//video distraction
+let movementTime = 40//60*30
 let prevNose
 
 let classifier;
@@ -17,58 +16,15 @@ let webcam_output
 let tiredCount = 0
 Notiflix.Report.Init({});
 Notiflix.Notify.Init({})
-    
 function preload() {
     classifier = ml5.imageClassifier(imageModelURL + 'model.json');
 }
 $("#start-monitor").click(function () {
-$(".header_section").remove()
+    $(".header_section").remove()
     $("#start-monitor").remove()
 
     Notiflix.Report.Info('Good Posture', 'Before starting, please be in good posture...', 'I am sitting up straight', function () {
-        var loc_array = {}
-        let start = new Date()
-        
-        // variable to count the number of undefines (used for ratio of distraction)
-        var distracted = 0 // should be up here if it should be reset by the user
-        let check_time_length = 300 // 300 representing 5 minutes
 
-        /* webgazer.begin()
-        webgazer.setGazeListener(function(data) {
-            var now = new Date()
-
-            time_diff = Math.round((now - start) / 1000)
-            //console.log(time_diff)
-
-            if (data !== null) {
-                var xprediction = data.x; //these x coordinates are relative to the viewport
-                var yprediction = data.y; //these y coordinates are relative to the viewport
-                loc_array[time_diff] = [xprediction, yprediction]
-                //console.log(xprediction, yprediction)
-            } else {
-                loc_array[time_diff] = [undefined, undefined]
-            }
-            
-            let check_time = time_diff - check_time_length
-
-            if (check_time in loc_array) {
-                distracted = 0
-                console.log("start")
-                for (let i=0; i < check_time_length; i++) {
-                    loc_item = loc_array[time_diff-i]
-                    if (typeof loc_item == "undefined") {
-                        distracted++ // if undefined, user is "distracted in that second"
-                    } else if (loc_item[0] < 0 || loc_item[1] < 0) {
-                        distracted++ // out of screen
-                    } else if (loc_item[0]/$(window).width() > 1 || loc_item/$(window).height() > 1) { // adjusted screen ratios too preference
-                        distracted++ // out of screen
-                    }
-                }
-                let ratio_of_distraction = distracted / check_time_length
-                console.log(ratio_of_distraction)
-                console.log("end")
-            }
-        }).begin(); */
         canvas = createCanvas(width, height);
         canvas.parent("demo-angel");
         $('#defaultCanvas0').css('display', 'flex')
@@ -87,6 +43,7 @@ $(".header_section").remove()
             }
 
         });
+
         webcam_output.hide()
         flippedVideo = ml5.flipImage(webcam_output);
         classifyVideo();
@@ -121,7 +78,55 @@ $(".header_section").remove()
 
         }, 1000)
         setInterval(checkMovement, movementTime * 1000);
+
+        /* var loc_array = {}
+        let start = new Date()
+        
+        // variable to count the number of undefines (used for ratio of distraction)
+        var distracted = 0 // should be up here if it should be reset by the user
+        let check_time_length = 300 // 300 representing 5 minutes
+        webgazer.setVideoElementCanvas(canvas)
+        webgazer.setGazeListener(function(data) {
+            var now = new Date()
+        
+            time_diff = Math.round((now - start) / 1000)
+            //console.log(time_diff)
+        
+            if (data !== null) {
+                var xprediction = data.x; //these x coordinates are relative to the viewport
+                var yprediction = data.y; //these y coordinates are relative to the viewport
+                loc_array[time_diff] = [xprediction, yprediction]
+            } else {
+                loc_array[time_diff] = [undefined, undefined]
+            }
+            
+            let check_time = time_diff - check_time_length
+        
+            if (check_time in loc_array) {
+                distracted = 0
+                console.log("start")
+                for (let i=0; i < check_time_length; i++) {
+                    loc_item = loc_array[time_diff-i]
+                    if (typeof loc_item == "undefined") {
+                        distracted++ // if undefined, user is "distracted in that second"
+                    } else if (loc_item[0]/$(window).width() < 0.1 || loc_item[1]/$(window).height() < 0.1) {
+                        distracted++ // out of screen
+                    } else if (loc_item[0]/$(window).width() > 0.9 || loc_item[1]/$(window).height() > 0.9) { // adjusted screen ratios too preference
+                        distracted++ // out of screen
+                    }
+                }
+                let ratio_of_distraction = distracted / check_time_length
+                if(ratio_of_distraction>0.9){
+        
+                }
+                console.log(ratio_of_distraction)
+                console.log("end")
+            }
+        }).begin();
+        webgazer.showVideoPreview(false).showPredictionPoints(false) */
+
     })
+
 
 })
 function classifyVideo() {
@@ -132,7 +137,6 @@ function classifyVideo() {
 }
 function gotResult(error, results) {
     if (error) {
-        console.error(error);
         return;
     }
     if (results[0].label == "Class 1") {
@@ -186,7 +190,7 @@ function draw() {
 
 function checkMovement() {
     if (movement < 0.2 * movementTime) {
-        Notiflix.Notify.Info("A kind reminder to rest from the computer becasue you haven't moved much in the past 30 seconds...")
+        Notiflix.Notify.Info("A kind reminder to rest from the computer becasue you haven't gotten off the computer in the past 30 seconds...")
         /* $.notify("A kind reminder to rest from the computer becasue you haven't moved much in the past 30 seconds...","info"); */
     }
     movement = 0

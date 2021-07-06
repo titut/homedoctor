@@ -1429,12 +1429,12 @@
                         <image src="/images/tick.png" style="width: 10em; height:10em; margin: 3em 0em;"></image>
                         <h2 style="margin-bottom: 2em;">Test has been submitted!</h2>
                         <div id="finishedInfo">
-
+                            
                         </div>
                      </div>
                </div>
                `)
-               let req = await fetch("https://healthangel.herokuapp.com/endofdaytest", {
+               let req = await fetch("http://localhost:6969/endofdaytest"/* "https://healthangel.herokuapp.com/endofdaytest" */, {
                   method: "POST",
                   headers:{
                      "Content-Type":"application/json",
